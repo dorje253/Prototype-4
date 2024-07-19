@@ -658,6 +658,12 @@ MonoBehaviour:
   speed: 5
   hasPowerup: 0
   powerupIndicator: {fileID: 1115885089}
+  currentPowerUp: 0
+  rocketPrefab: {fileID: 4872347630937737791, guid: fc28ec823031e00469c4882993311076, type: 3}
+  hangTime: 0.5
+  smashSpeed: 15
+  explosionForce: 25
+  explosionRadius: 15
 --- !u!1 &1338780683
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +698,10 @@ MonoBehaviour:
   - {fileID: 7223577884787442270, guid: 9bad9ab6eef7fa44599c0f481bbadbdf, type: 3}
   enemyCount: 0
   waveNumber: 1
-  powerupPrefab: {fileID: 8059287496447379916, guid: 20131ab91af55e349a4c77cbbb780296, type: 3}
+  powerupPrefabs:
+  - {fileID: 8059287496447379916, guid: 20131ab91af55e349a4c77cbbb780296, type: 3}
+  - {fileID: 8059287496447379916, guid: 67a06220cbe5a6b48964ee7bf7c2bd54, type: 3}
+  - {fileID: 4552528529727876664, guid: 2debccf82ef9e044897d309c99703420, type: 3}
 --- !u!4 &1338780685
 Transform:
   m_ObjectHideFlags: 0
@@ -811,6 +820,63 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8878a37eb67ddac4ead51890a31d6a18, type: 3}
+--- !u!1001 &1564792360
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15682614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65736246
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.9040408
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492966146922124733, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552528529727876664, guid: 2debccf82ef9e044897d309c99703420, type: 3}
+      propertyPath: m_Name
+      value: PowerupSmash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2debccf82ef9e044897d309c99703420, type: 3}
 --- !u!1001 &7305732181041295649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -884,3 +950,4 @@ SceneRoots:
   - {fileID: 207755216}
   - {fileID: 1338780685}
   - {fileID: 488415265}
+  - {fileID: 1564792360}
