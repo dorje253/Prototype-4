@@ -5,16 +5,18 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject enemyPrefab;
+   
+    public GameObject[] enemyPrefabs;
     private float spawnRange = 9.0f;
     public int enemyCount;
     public int waveNumber = 1;
 
-    public GameObject powerupPrefab;
+    public GameObject[] powerupPrefabs;
     void Start()
     {
-       SpwanEnemyWave(waveNumber);
-       Instantiate(powerupPrefab, GenerateSpawnPosition(), transform.rotation);
+        int randomPowerup = Random.Range(0, powerupPrefabs.Length);
+        Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(),powerupPrefabs[randomPowerup].transform.rotation);
+        SpwanEnemyWave(waveNumber);
     }
 
     // Update is called once per frame
@@ -24,7 +26,8 @@ public class SpawnManager : MonoBehaviour
         if(enemyCount == 0){
             waveNumber++;
             SpwanEnemyWave(waveNumber);
-            Instantiate(powerupPrefab, GenerateSpawnPosition(), transform.rotation);
+            int randomPowerup = Random.Range(0, powerupPrefabs.Length);
+            Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(),powerupPrefabs[randomPowerup].transform.rotation);
         }
     }
 
@@ -38,7 +41,9 @@ public class SpawnManager : MonoBehaviour
 
     void SpwanEnemyWave(int enemiesToSpawn){
         for (int i = 0; i<enemiesToSpawn; i++){
-             Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+            int randomEnemy = Random.Range(0, enemyPrefabs.Length);
+
+             Instantiate(enemyPrefabs[randomEnemy], GenerateSpawnPosition(), enemyPrefabs[randomEnemy].transform.rotation);
         
         }
     }
