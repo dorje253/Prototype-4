@@ -29,13 +29,15 @@ public class SpawnManager : MonoBehaviour
         enemyCount = FindObjectsOfType<Enemy>().Length;
         if(enemyCount == 0){
             waveNumber++;
-            //Spawn a boss every x number of waves
+            //Checks if the current wave number is divisible by bossRound
             if (waveNumber % bossRound == 0)
             {
+                // Calls to spawn a boss
                 SpawnBossWave(waveNumber);
             }
             else
             {
+                // Callsto spawn a normal wave of enemies
                 SpwanEnemyWave(waveNumber);
             }
             // //Updated to select a random powerup prefab for the Medium Challenge
@@ -63,26 +65,31 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnBossWave(int currentRound)
     {
+        // The number of mini-enemies the boss will spawn
         int miniEnemysToSpawn;
-        //We dont want to divide by 0!
+        //Checks if bossRound is not zero
         if (bossRound != 0)
         {
+            // alculates the number of mini-enemies to spawn based on the current round and bossRound
             miniEnemysToSpawn = currentRound / bossRound;
         }
         else
         {
             miniEnemysToSpawn = 1;
         }
-        var boss = Instantiate(bossPrefab, GenerateSpawnPosition(),
-        bossPrefab.transform.rotation);
+        // Creates the boss at a random spawn position with the prefab's default rotation
+        var boss = Instantiate(bossPrefab, GenerateSpawnPosition(),bossPrefab.transform.rotation);
+        // Sets the mini-enemies.
         boss.GetComponent<Enemy>().miniEnemySpawnCount = miniEnemysToSpawn;
     }
 
 
+    // spwan the minimum enemy
     public void SpawnMiniEnemy(int amount)
     {
         for(int i = 0; i < amount; i++)
         {
+            // chosing the random mini enemy
             int randomMini = Random.Range(0, miniEnemyPrefabs.Length);
             Instantiate(miniEnemyPrefabs[randomMini], GenerateSpawnPosition(),
             miniEnemyPrefabs[randomMini].transform.rotation);
